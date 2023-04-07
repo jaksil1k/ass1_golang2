@@ -157,7 +157,7 @@ func Test_main(t *testing.T) {
 		t.Error(err)
 	}
 
-	defer func(v *os.File) { os.Stdin = v; os.Stdout = v }(os.Stdin)
+	defer func(v1 *os.File, v2 *os.File) { os.Stdin = v1; os.Stdout = v2 }(os.Stdin, os.Stdout)
 	os.Stdin = r
 	os.Stdout = w
 
